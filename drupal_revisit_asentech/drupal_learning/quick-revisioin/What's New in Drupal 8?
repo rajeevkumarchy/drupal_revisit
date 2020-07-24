@@ -1,0 +1,29 @@
+- Mobile-first: Content looks beautiful on all devices, out of the box.
+
+- New configuration management: Manage site configuration via version control: export, import, share and merge.
+
+- A better authoring experience: Manage your content easily with the bundled CKEditor WYSIWYG editor and the ability to edit in-place.
+
+- Views in Core: Customize all your views
+
+- Multilingual capabilities: Reach a global audience through translating with built-in user interfaces.
+
+- HTML 5 based-markup: Apply core updates quickly and with confidence.
+
+- Built-in web services: Use Drupal as a REST API for mobile apps, decoupled frontends, and more.
+
+- Flexible and fast theming: Use the Twig template engine to build beautiful sites easily and quickly.
+
+- Object-oriented programming: Welcoming non-Drupal developers with an industry standard approach.
+
+- Strong accessibility features: Support for standard accessibility technologies means optimal user experience.
+
+- Drush and The Drupal Console
+
+- Configuration Management 
+
+- TWIG Templating
+
+- Decoupled Architecture
+
+- Panels & Page Manager

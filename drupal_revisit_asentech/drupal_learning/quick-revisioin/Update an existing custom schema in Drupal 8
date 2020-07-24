@@ -1,0 +1,24 @@
+without losing data using a hook_update_N().
+
+
+
+<?php
+
+use Drupal\Core\Database\Database;
+
+/**
+ * @param $sandbox
+ */
+function mymodule_update_90002(&$sandbox) {
+  $spec = [
+    'type' => 'varchar',
+    'description' => "New Col",
+    'length' => 20,
+    'not null' => FALSE,
+  ];
+  $schema = Database::getConnection()->schema();
+  $schema->addField('mymodule', 'newcol', $spec);
+  $schema->addIndex('mymodule', 'newcol',['newcol'],$spec);
+
+  return t('new col added to mymodule table.');
+}

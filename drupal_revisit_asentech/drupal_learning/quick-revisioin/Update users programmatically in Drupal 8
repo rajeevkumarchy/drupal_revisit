@@ -1,0 +1,10 @@
+<?php
+$uid = \Drupal::currentUser()->id();
+  $user = \Drupal\user\Entity\User::load($uid);
+  $user->setPassword("example");
+  $user->setEmail("example@gmail.com");
+  $user->setUsername("example");
+// Set the field value new value.
+//  $user->set('field_example', "field_example");
+  $user->save();
+?>

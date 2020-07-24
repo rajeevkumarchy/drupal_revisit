@@ -1,0 +1,25 @@
+Step1. Create routing file   (mymodule.routing.yml)
+Step2 . Create links.menu.yml file (mymodule.links.menu.yml)
+
+  
+mymodule.content:
+ path: '/mymodule'
+ defaults:
+   _title: 'My page'
+   _controller: '\Drupal\mypage\Controller\MyPageController::content'
+   _title: 'My first page and menu item'
+ requirements:
+   _permission: 'acces content'
+   mypage_id: \d+
+================================================================================
+
+
+mymodule.newpage:
+ title: 'Mymodule welcomme to link'
+  route_name: mymodule.content
+  weight: 10
+  menu_name: main
+
+# Menu system name
+ parent: system.admin
+

@@ -1,0 +1,42 @@
+Step1. mymodule.libraries.yml
+
+mymodule-js:
+  version: 1.x
+  js:
+    js/mymodule.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+=========================================================
+Step2. mymodule.module: 
+use $variables['#attached']['drupalSettings'] to pass variable to javascript like the below example :
+
+<?php
+
+
+/**
+ * @param $variables
+ */
+function mymodule_preprocess_page(&$variables)
+{
+  $color_body = 'red';
+  //Add a JS library
+  $variables['#attached']['library'][] = 'mymodule/mymodule-js';
+  // pass variable to Drupal.Settings
+  $variables['#attached']['drupalSettings']['mymodule']['color_body'] = $color_body;
+}
+
+============================================================
+Step3. js/mymodule.js
+We can access this data in javascript by drupalSettings:
+
+(function ($, Drupal, drupalSettings) {
+  Drupal.behaviors.MyModuleBehavior = {
+    attach: function (context, settings) {
+      // get color_body value with "drupalSettings.mymodule.color_body"
+      var color_body = drupalSettings.mymodule.color_body;
+      $('body').css('background', color_body);
+    }
+  };
+})(jQuery, Drupal, drupalSettings);

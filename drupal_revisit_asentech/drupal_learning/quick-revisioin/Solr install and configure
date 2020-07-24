@@ -1,0 +1,52 @@
+Definitioin: 
+
+Apache Solr is a very popular open source search platform, based on the Java Lucene Library. Solr is very stable, scalable and reliable and provides a wide set of core search functions. Solr creates an index of the available documents and then you can query Solr to return the most relevant ones for your search.
+
+=================================================================================================
+How to use Search API Solr Search in Drupal 8  (reference: https://www.ostraining.com/blog/drupal/apache-solr/)
+Solr Setup on localhost(ubuntu)
+
+=================================================================================================
+Solr Installation
+Step 1. Install Java
+Step 2. Install Apache Solr on Ubuntu  (download latest version of solr: https://archive.apache.org/dist/lucene/solr/8.4.0/)
+Step 3. Put solr folder anywhere(ex:/var/www/html/) 
+Step 4. Check solr version and java version and compability, check solr status
+Step 5. Create Create First Solr Collection
+Step 6. Access Solr Admin Panel (ex: http://localhost:8983/solr/)
+
+=================================================================================================
+Step 7. Download Search API Solr module using composer(composer require drupal/search_api_solr) because there is 'solaium' libary need in vendor folder.
+
+=================================================================================================
+Step 8. Configuring Solr
+
+(a) Go to collection folder, you have created under solr.(ex: /var/www/html/solr-8.4.0/server/solr/airforce)
+(b) rename 'conf' folder to 'conf_old';
+(c) Now, go to, Search API Solr module.(/var/www/html/airforce/modules/contrib/search_api_solr/solr-conf-templates)
+(d)copy 7.x module to /var/www/html/solr-8.4.0/server/solr/airforce and rename in 'conf'.
+(e). Change owner, group and permissions for this new folder and restart solr
+   chown -R solr:solr conf
+   chmod -R 775 conf
+
+=================================================================================================
+Step 9. Enabling the Search API Solr Module
+(a) uninstall default search module.
+(b) enable the "Solr Search Defaults" module, this module provides the initial default configuration.
+
+==================================================================================================
+Step 10. Configuring the Search API
+(a). Go to Configuration > Search API.
+(b). The Server and Index configurations were provided by the Solr Search Defaults module.
+(c). Click the "Edit" button to configure the Server.
+(d). Uninstall Solr Search Defaults module, For performance reasons,
+(e.) Check proper solr server page with edit form.
+(f)  Check default solr content index page with edit form.
+(g). Go to solr server page and download config.zip file(http://airforce.local/admin/config/search/search-api/server/default_solr_server)
+(h). extract this folder, copy entire files and paste into /var/www/html/solr-8.4.0/server/solr/airforce/conf
+(i). Add all fields prooperly, which you want to search into solr.
+(j). Rebuild index.(http://airforce.local/admin/config/search/search-api/index/default_solr_index).
+
+=================================================================================================
+Step 11. Testing the Search API Solr Module
+yoursite/solr-search/content

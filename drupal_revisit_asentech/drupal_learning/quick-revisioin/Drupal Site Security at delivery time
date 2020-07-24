@@ -1,0 +1,18 @@
+Keep Drupal and modules up to date
+Use smart usernames and passwords
+Always use secure connections
+Check file permissions
+ Block access to important files
+
+
+    Login Security: Limit number of login attempts and deny access by IP address.
+    ACL: Access control lists for access to nodes.
+    Password policy: Define more security password policies for users.
+    Captcha: Block form submissions from spambots/scripts.
+    Automated Logout: Allows administrator ability to log out users after specified time period.
+    Session Limit: Limit the number of simultaneous sessions per user.
+    Content Access: Permissions for content types by role and author.
+    Coder: Checks your Drupal code against coding standard and best practices.
+    SpamSpan filter: Obfuscates email address to help prevent spambots from collecting them.
+    Hacked!: Check to see if there have been changes to Drupal core or themes.
+

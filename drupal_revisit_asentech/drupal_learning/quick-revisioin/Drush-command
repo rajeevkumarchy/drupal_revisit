@@ -1,0 +1,8 @@
+1. How to change password of user using drush.
+
+drush user-password UserName --password="your-new-password". - D8
+
+drush user:password UserName "your-new-password". - D9
+
+2. Creating a one-time login
+drush user-login --uri=http://local.drupal8/

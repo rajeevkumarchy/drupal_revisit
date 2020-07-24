@@ -1,0 +1,37 @@
+Themes are responsible for:
+
+a. Different layout style
+b. Position and display of the content - text, and non-text
+c. The customization of the typography and design elements
+d. The responsiveness of the website
+
+Let's start with creating a custom theme from scratch. 
+
+1. Inside the themes folder create a subfolder named custom. Here you can place all your custom created themes.
+
+2. Let's start with creating a theme named Magazine.
+
+3. Info.yml file in a theme(magazine.info.yml)
+
+4. Enabling the Theme - drush config-set system.theme default theme-name
+
+5. Create Regions in Theme
+
+6. Create Libraries.yml file (magazine.libraries.yml)
+   Let's add libraries now which will include our cascading style sheets (CSS) and javascript file (js). 
+
+7. Twig Debugging
+  	For enabling twig debugging you simply need to edit services.yml file this file is located under Sites > Default > services.yml
+
+  	Debug: true
+
+8. Create Template folder for theme
+   Let's create a templates folder and inside which we will place our all html.twig files.   	
+
+9. Overriding twig templates
+
+10.Twig naming conventions
+
+10. Finding Variables - The syntax we use to print the variables is simple:
+    {{ dump() }}
+    {{ dump(title) }}

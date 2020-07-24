@@ -1,0 +1,9 @@
+The Install file
+
+ hook_schema() - This hook is used to define a module's databases tables and fiellds.
+
+ hook_install() - This hook allow you to add any additional setup tasks necessary during istallation.
+
+ hook_uninstall() - his hook allow you to add additional tasks needed for uninstall.
+
+ hook_update_N() - Performs a single update between minor versions of module.

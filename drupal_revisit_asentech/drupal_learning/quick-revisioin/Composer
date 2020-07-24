@@ -1,0 +1,38 @@
+Definitions: Composer is a tool for dependency management in PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.
+
+Drupal uses Composer to manage the various libraries that it depends on. Modules can also use Composer to include 3rd party libraries.
+========================================================================================
+Install, Uninstall and Update Modules/Themes/etc. with Composer
+
+To install a module, you'll type composer require drupal/<module>
+
+For example, to install Pathauto, you'd type composer require drupal/pathauto
+
+And if we take a look in our composer.json file, we'll see that Pathauto was added like this:
+"drupal/pathauto": "1.x-dev"
+
+In this case, to get the "recommended" release, we have to specify a version by typing something like this:
+
+composer require "drupal/pathauto:^1.0"
+
+
+Uninstalling Projects:
+composer remove drupal/pathauto
+=============================================================================================
+Composer.json:     Composer will then automatically update your composer.json, adding the module to all the other requirements in the list, like this
+
+{
+    "require": {
+        "drupal/path_auto": "^1.5"
+    }
+} 
+
+
+Compser.lock: 
+            "name": "asm89/stack-cors",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asm89/stack-cors.git",
+                "reference": "c163e2b614550aedcf71165db2473d936abbced6"
+            },

@@ -1,0 +1,3 @@
+Sub-themes are just like any other theme, with one difference: they inherit the parent theme's resources. 
+
+Two base themes in Drupal 8: Classy and Stable

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Sample help module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sample_help_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'sample_help.page':
+      $build = [
+        '#prefix' => '<p>',
+        '#markup' => t('This is the help text for our sample page.'),
+        '#suffix' => '</p>',
+      ];
+
+      return $build;
+  }
+}

@@ -1,0 +1,9 @@
+$ids = \Drupal::entityQuery('user')
+    ->condition('mail', 'username@example.com')
+    ->execute();
+
+  if (!empty($ids)) {
+    kint("this mail already exists");
+  } else {
+    kint("this mail not exists");
+  }

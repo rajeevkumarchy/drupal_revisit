@@ -1,0 +1,89 @@
+bin/solr start
+bin/solr stop
+bin/solr restart
+bin/solr status
+=======================================================
+2. Syntax for the solr create core command
+   $  bin/solr create_core [-c name] [-d confdir] [-p port]
+
+
+Example 1 - Create a Solr core
+$  bin/solr create_core -c mycore
+
+Example 2 - Create a Solr core with a non-default config directory
+$  bin/solr create_core -c mycore -d mycoreconfigs
+
+	bin/solr create -c airforce -d airforceconfigs
+
+Example 3 - Create a Solr core on a non-default port
+$  bin/solr create_core -c mycore -p 8984
+
+
+Example 4 - Print additional help on the solr create_core command
+
+$  bin/solr create_core -help
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Create new document in solr?
+Document created through 'Curl' for data post or date get from third party.
+Ex: curl -X post -H 'Content-Type:application/json' "http://localhost:8983/solr/test/update/json/docs" --data-binary "{'id': ''7,'}"
+
+
+
+curl -X POST -H '{"add":{ "doc":{"id":"delete.me","title":"change.me"}}}' -H "Content-Type: application/json" http://localhost:8983/solr/solr_sample/update?commit=true
+
+curl -X POST -H "Content-Type:application/json" "http://localhost:8983/solr/test/update/json/docs" --data-binary "[{'id': '5','title':'Title 5'},{'id': '6','title':'titlee 6'}]"
+
+
+{
+ "id": 1,
+ "book_title": "My First Book",
+ "published": 1985,
+ "description": "All about Linux"Example 4 - Print additional help on the solr delete command
+}
+----------------------------------------------------------------------------------------------------
+
+for reference : https://factorpad.com/tech/solr/reference/solr-create-core.html
+===============================================================================================
+
+Delete solr core
+Syntax for the solr delete command
+$  bin/solr delete [-c name] [-deleteConfig true|false] [-p port]
+
+bin/solr delete -c air_force -p 8983
+Example 1 - Delete a Solr core
+$ bin/solr delete -c mycore
+
+Example 2 - Delete a Solr core on port 8984
+$  bin/solr delete -c mycore -p 8984
+
+Example 3 - Delete a Solr collection and save non-default configurations
+$  bin/solr delete -c mycollection -deleteConfig false
+
+Example 4 - Print additional help on the solr delete command
+$  bin/solr delete -help
+
+
+
+
+
+
+
+

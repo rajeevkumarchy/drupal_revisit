@@ -1,0 +1,23 @@
+Security audits in Drupal are a vital part of maintaining Drupal websites' health and security. Web development team should always be proactive when it comes to delivering maximum client satisfaction with digital safety.
+
+============================================
+General Aspect or General Review
+When it comes to a security audit, there are some things that should be always addressed or covered, as these steps give the overview of the site.
+
+General codebase overview: Security Audit Team analyses to get a comprehensive understanding of the       structure and organization of modules along with the custom code involving PHP and JavaScript. Generally, in big projects which involve a high percentage of custom coding, it is very common to see a big mess in custom code, structured without consistent patterns or style guides, leaving it open to security holes.
+
+
+General Code Review: Code can be reviewed by using an IDE or automated tools, to unravel extensive use of bad practices. One of the tools which can be used for the code review is the Coder module which is developed to check the Drupal Standards. While reviewing code, here are a few more aspects that should be looked at:
+
+(a). SQL Injection
+(b). Remote Code Execution
+(c). User Input Sanitisation
+(d). Privilege Access Management
+(e). CSRF should be consider
+(f). OWASP standard should be followed
+(g). General Configuration like
+(h). HTTPS configuration
+(i). Disable PHP filter
+(j). Access Text Format
+(k). Private files should be at a secure place
+(l). Execution of PHP Files from subfolder should be disabled.

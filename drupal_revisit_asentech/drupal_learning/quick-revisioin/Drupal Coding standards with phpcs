@@ -1,0 +1,11 @@
+1. PHP_CodeSniffer(phpcs)
+
+phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml modules/custom/skipta_seedit/
+
+
+2. PHP Code Beautifier and Fixer(phpcbf)
+phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml modules/custom/skipta_seedit/
+
+
+3. deprecation check
+php drupal-check.phar modules/custom/skipta_seedit/

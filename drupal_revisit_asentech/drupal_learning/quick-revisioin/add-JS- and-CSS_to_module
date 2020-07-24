@@ -1,0 +1,50 @@
+Adding stylesheets (CSS) and JavaScript (JS) to a Drupal 8 module:
+
+1. Attaching to a certain '#type'
+function yourmodule_element_info_alter(array &$types) {
+  if (isset($types['table'])) {
+    $types['table']['#attached']['library'][] = 'your_module/library_name';
+  }
+}
+=============================================================================================
+2. Attaching to a render array
+$build['the_element_that_needs_the_asset_library']['#attached']['library'][] = 'your_module/library_name';
+============================================================================================
+3. Attaching to a render array of a Block Plugin
+return [
+      '#theme' => 'your_module_theme_id',
+      '#someVariable' => $some_variable,
+      '#attached' => [
+        'library' => [
+          'your_module/library_name',
+        ],
+      ],
+    ];
+==============================================================================================
+ 4. Attaching a library to a form
+    /**
+ * Implements hook_form_alter().
+ */
+function yourmodule_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  /* @var Drupal\Core\Entity\FieldableEntityInterface $entity */
+  $formObject = $form_state->getFormObject();
+  if ($formObject instanceof \Drupal\Core\Entity\EntityFormInterface) {
+    $entity = $formObject->getEntity();
+    if (
+      $entity->getEntityTypeId() === 'node'
+      && in_array($entity->bundle(), ['organisation', 'location', 'event', 'article'])
+    ) {
+      $form['#attached']['library'][] = 'yourmodule/yourlibrary';
+    }
+  }
+}
+===========================================================================================
+5. Attaching a library in a preprocess function
+   You can attach a library in a preprocess function using the special key '#attached':
+
+   function yourmodule_preprocess_maintenance_page(&$variables) {
+  $variables['#attached']['library'][] =  'your_module/library_name';
+}
+==============================================================================================
+6. Attaching a library in a twig template
+{{ attach_library('your_module/library_name') }}

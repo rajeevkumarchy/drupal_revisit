@@ -1,0 +1,37 @@
+Reference: http://mydons.com/how-to-expose-custom-module-table-to-views-in-drupal/
+
+Step1 -  Create info file
+
+name = Mydons Learn Views
+description = Mydons module For learning views coding
+core=7.x
+version=VERSION
+dependencies[] = views
+files[] = mydons_learnviews.module
+files[] = mydons_learnviews.install
+files[] = views/mydons_learnviews.views.inc
+
+========================================================================================
+Step2 -  Create install file.
+
+/**
+ * Implements hook_schema()
+ *
+ */
+
+=======================================================================================
+Step3 - Create .inc file under views folder.
+
+/**
+ * Implements hook_views_data()
+ *
+ */
+
+======================================================================================
+Step4 - Create .module file
+function mydons_learnviews_views_api() {
+    return array(
+        'api' => '3.0-alpha1',
+        'path' => drupal_get_path('module','module_name'). '/views',
+    );
+ =======================================================================================

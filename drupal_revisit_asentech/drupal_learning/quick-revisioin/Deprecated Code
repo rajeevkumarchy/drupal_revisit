@@ -1,0 +1,9 @@
+The following three tools can be used to check if your site is using a deprecated code:
+
+
+1. Drupal-check: This static PHP code analysis tool developed by Matt Glaman can be used to check your codebase for deprecated code.
+
+
+2. Upgrade Status: This is a contributed module by Acquia which scans the code of contributed and custom projects you may have installed, and reports on any deprecated code that needs to be replaced.
+
+3. BLT: If your project is based on BLT, it is exciting to know that the deprecated code check is now part of BLT 10, and will now be available as other validation check.

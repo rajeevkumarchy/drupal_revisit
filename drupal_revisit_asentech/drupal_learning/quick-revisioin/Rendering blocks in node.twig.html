@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @param $variables
+ */
+function mymodule_preprocess_node(&$variables) {
+$block = \Drupal\block\Entity\Block::load('ID_OF_YOUR_BLOCK');
+$block_content = \Drupal::entityTypeManager()
+->getViewBuilder('block')
+->view($block);
+$variables['myblock'] = $block_content;
+}
+
+and then to display block in node, juste use {{ myblock }} in your node.html.twig.

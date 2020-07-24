@@ -1,0 +1,60 @@
+1. Creating an info file
+
+name: Awesome Theme
+description: 'An awesome D8 theme.'
+base theme: classy
+package: Custom
+type: theme
+version: 1.0
+core: 8.x
+--------------------------------------------------------------------
+2. Create regions
+
+   Regions can be defined using the regions tag. Here is an example where 3 regions are defined: a header, a content and a footer region:  
+
+# Regions
+regions:
+  header: 'Header'
+  content: 'Content'
+  footer: 'Footer'
+---------------------------------------------------------------------
+3. How to create library in theme.
+
+
+# In mythemename.libraries.yml
+
+# Give your library a name.
+my-library-name:
+  version: "1.0.x"
+  css:
+    # The SMACSS category.
+    base:
+      # The path to the css file.
+      assets/css/base.css: {}
+    theme:
+      assets/css/print.css: { media: print }
+  js:
+    assets/js/myglobal.js: {}
+  dependencies:
+    - core/jquery
+
+# In the following example, we add a Google font (Lato).
+lato:
+  css:
+    base: '//fonts.googleapis.com/css?family=Lato': { external: true }
+
+--------------------------------------------------------------------
+4. Deleting or overriding existing styles served by core
+   In the theme_name.info.yml file:
+
+stylesheets-remove:
+      - normalize.css
+
+or to override the core's stylesheet:
+ stylesheets-override:
+      - normalize.css  
+----------------------------------------------------------------
+5. Specifying scope of a JS file or sending it to the footer
+
+   In theme_name.libraries.yml file.          
+ js/script.js: { scope: footer }

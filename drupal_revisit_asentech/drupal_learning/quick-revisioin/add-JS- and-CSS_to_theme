@@ -1,0 +1,67 @@
+In Drupal 8, both stylesheets and scripts should be added using libraries.
+
+Step 1: Place the JavaScript file in your theme or module inside a folder called js. After this step your folder structure must look like :
+
+my-theme/js/my-script.js
+
+Step 2: If your theme already has a my-theme.libraries.yml file open it, if not create it.
+
+my-library:
+  js: 
+    js/my-script.js: {}
+
+Step 3: Final step is to load the library in our site. This can be done in 4 specific ways:
+-----------------------------------------------------------------------------------------------
+Way 1: Attach library globally via theme-name.info.yml file
+Libraries can be specified in the theme-name.info.yml file by adding it to the libraries property, like this:
+
+name: my-theme
+type: theme
+description: my theme
+package: other
+core: 8.x
+libraries: 
+  - my-theme/global-effects
+  - my-theme/my-library
+
+base theme: stable
+-------------------------------------------------------------------------------------------------
+Way 2: Using hook_page_attachments_alter in theme-name.theme file. Following lines of code will attach our library only to the node listing page.
+
+function mytheme_page_attachments_alter(&$page){
+  $path = $current_path = \Drupal::service('path.current')->getPath();
+  if($path == '/node') {
+    $page['#attached']['library'][] = 'my-theme/my-library';
+  }
+}	
+
+
+/**
+ * Implements hook_page_attachments().
+ */
+function mytheme_page_attachments(array &$attachments) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if ($node->getType() === 'page') {
+      // Current page is a Page node.
+      // Attach JavaScript to the page.
+      $attachments['#attached']['library'][] = 'my-theme/my-library';
+    }
+  }
+}    
+-------------------------------------------------------------------------------------------
+
+Way 3: Another useful way to conditionally add a library is by using a preprocess function like hook_preprocess_page().
+
+Here's another example of restricting our asset libray to the front page
+
+function mytheme_preprocess_page(&$variables){
+  if ($variables['is_front'] == TRUE) {
+    $variables['#attached']['library'][] = 'my-theme/my-library';
+  }
+}
+-------------------------------------------------------------------------------------
+Way 4: Attaching a library via a Twig template:  using the attach_library() function.
+
+{# In a Twig template file. #}
+
+{{ attach_library('my-theme/my-library') }}
